@@ -1,0 +1,25 @@
+<div *ngIf="!dataArray" class="flex justify-center items-center w-full h-[50vh] container">
+    <img class="w-20" src="https://media.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="">
+</div>
+<div class="items-start gap-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-4 lg:-ml-[200px] p-2 md:p-4 w-full lg:w-screen images-card-container" *ngIf="images">
+    <div (click)="navigateToLink(data.contextLink)" class="w-auto cursor-pointer group image-card" *ngFor="let data of images.slice(0, visibleDataCount); let i = index">
+        <div   class="w-full h-[169px] overflow-hidden object-cover">
+            <img class="group-hover:shadow-xl rounded-lg w-full h-full object-cover" [src]="data.originalImageUrl "
+                alt=" ">
+        </div>
+        <div class="p-2 info-container">
+            <div class="flex justify-start items-center gap-2 heading-container">
+                <img class="w-5" [src]="data.thumbnailImageUrl">
+                <a [href]="data.contextLink" class="text-[12px] hover:underline">{{data.contextLink}}</a>
+            </div>
+            <div class="detail-container">
+                <p class="text-[15px]">
+                    {{data.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-6 text-center pagination-container">
+    <!-- <app-pagination [currentPage]="currentPage" (pageChanged)="changePage($event)"></app-pagination> -->
+    <button class="bg-blue-500 px-4 p-2 rounded-lg text-white"  (click)="showMore()">Show More</button>
+</div>

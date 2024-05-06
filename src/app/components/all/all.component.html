@@ -1,0 +1,39 @@
+<ng-container *ngIf="data">
+  <div class="results-length-container">
+    <span class="text-[14px]"
+      >About {{ data.searchInformation.formattedTotalResults }} results ({{
+        data.searchInformation.formattedSearchTime
+      }})
+    </span>
+  </div>
+  <div
+    class="mt-4 result-card-container"
+    *ngFor="let card of data.items; let i = index"
+  >
+    <div class="w-1/2 result-card">
+      <div
+        class="flex justify-start items-center gap-2 font-sans heading-container"
+      >
+        <div class="flex flex-col justify-center items-start title-container">
+          <a [href]="card.displayLink">{{ card.displayLink }}</a>
+        </div>
+      </div>
+      <div class="title-container">
+        <h1
+          class="font-sans text-2xl text-blue-800 hover:underline cursor-pointer"
+          [innerHTML]="card.htmlTitle"
+        ></h1>
+      </div>
+      <div class="detail-container">
+        <p class="font-sans" [innerHTML]="card.htmlSnippet"></p>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<div class="pagination-container">
+  <app-pagination
+    [currentPage]="currentPage"
+    (pageChanged)="changePage($event)"
+  ></app-pagination>
+</div>

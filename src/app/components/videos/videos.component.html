@@ -1,0 +1,23 @@
+<!-- <div class="results-length-container">
+    <span class="text-[14px]">About 7,82,00,000 results (0.26 seconds) </span>
+</div> -->
+<div *ngIf="!videosArray" class="flex justify-center items-center w-full h-[50vh] container">
+    <img class="w-20" src="https://media.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="">
+</div>
+<div class="flex flex-col justify-start items-start gap-6 mt-4 px-6 lg:px-0 result-card-container" >
+    <div class="w-full md:w-1/2 result-card" *ngFor="let item of videosArray;let i = index" >
+        <a href="{{ item.link }}" target="_blank" class="font-medium font-sans text-blue-800 text-xl hover:underline cursor-pointer">
+            {{ item.title }}
+        </a>
+        <div class="flex justify-center items-start gap-4 mt-2 detail-container">
+            <div class="rounded-lg w-1/2 md:w-[40%] overflow-hidden group video-container">
+                <img class="rounded-md" [src]="item.thumbnail" alt="">
+            </div>
+            <div class="flex flex-col justify-between items-start gap-4 w-auto h-full info-container">
+                <p class="text-[14px]">{{ item.description }}</p>
+                <span class="text-[14px]">{{ item.uploaded_at }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+                <!-- <iframe width="200" height="100" [src]="getEmbedLink(item.link)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->

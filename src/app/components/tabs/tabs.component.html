@@ -1,0 +1,11 @@
+<div class="border-b-[1px] w-screen reasult-tabs-container">
+    <div class="flex justify-center md:justify-start items-center ml-0 lg:ml-[200px] px-0 md:px-6 lg:px-0 py-2 tab-container">
+        <ul class="flex justify-center items-center gap-2 capitalize">
+            <!-- <li><a href="#" class="p-2 focus:border-b-[1px] focus:border-b-blue-600 focus:text-blue-600" (click)="selectTab('all')">All</a></li> -->
+            <li class="cursor-pointer"><a  [ngClass]="this.selectedTab === 'all' ? 'p-2 border-b-[1px] border-b-blue-600 text-blue-600' : 'p-2'" (click)="selectTab('all')">All</a></li>
+            <!-- <li class="cursor-pointer"><a  [ngClass]="this.selectedTab === 'news' ? 'p-2 border-b-[1px] border-b-blue-600 text-blue-600' : 'p-2'" (click)="selectTab('news')">News</a></li> -->
+            <li class="cursor-pointer"><a  [ngClass]="this.selectedTab === 'images' ? 'p-2 border-b-[1px] border-b-blue-600 text-blue-600' : 'p-2'" (click)="selectTab('images')">Images</a></li>
+            <li class="cursor-pointer"><a  [ngClass]="this.selectedTab === 'videos' ? 'p-2 border-b-[1px] border-b-blue-600 text-blue-600' : 'p-2'" (click)="selectTab('videos')">Videos</a></li>
+        </ul>
+    </div>
+</div>

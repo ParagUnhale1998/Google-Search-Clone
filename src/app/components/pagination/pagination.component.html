@@ -1,0 +1,5 @@
+<div class="pagination">
+    <button class="bg-blue-500 px-4 p-2 rounded-lg text-white" (click)="navigate(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span class="mx-2 text-lg hover:text-blue-700 cursor-pointer" *ngFor="let item of pagination" (click)="navigate(item.page)" [class.active]="currentPage === item.page">{{ item.page }}</span>
+    <button class="bg-blue-500 px-4 p-2 rounded-lg text-white" (click)="navigate(currentPage + 1)" [disabled]="currentPage === pagination.length">Next</button>
+  </div>

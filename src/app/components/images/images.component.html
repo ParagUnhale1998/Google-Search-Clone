@@ -1,0 +1,22 @@
+<div class="items-start gap-2 grid grid-cols-6 mt-4 -ml-[200px] p-4 w-screen images-card-container" *ngIf="dataArray">
+
+    <div class="w-auto cursor-pointer group image-card" *ngFor="let data of dataArray; let i = index">
+        <div class="w-full h-[169px] overflow-hidden object-cover">
+            <img class="group-hover:shadow-xl rounded-lg w-full h-full object-cover" [src]="data.link "
+                alt=" ">
+        </div>
+        <div class="p-2 info-container">
+            <div class="flex justify-start items-center gap-2 heading-container">
+                <img class="w-5" [src]="data.image.thumbnailLink">
+                <a href="#" class="text-[12px] hover:underline">{{data.displayLink}}</a>
+            </div>
+            <div class="detail-container">
+                <p class="text-[15px]">
+                    {{data.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pagination-container">
+    <app-pagination [currentPage]="currentPage" (pageChanged)="changePage($event)"></app-pagination>
+</div>

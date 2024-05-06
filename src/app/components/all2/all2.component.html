@@ -1,0 +1,47 @@
+<div *ngIf="!data" class="flex justify-center items-center w-full h-[50vh] container">
+    <img class="w-20" src="https://media.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="">
+</div>
+
+<ng-container *ngIf="data" class="">
+    <!-- <div class="results-length-container">
+      <span class="text-[14px]"
+        >About {{ data.searchInformation.formattedTotalResults }} results ({{
+          data.searchInformation.formattedSearchTime
+        }})
+      </span>
+    </div> -->
+
+    <div class="items-start gap-4 grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 px-0 md:px-6 lg:px-0 container">
+        <div class="flex flex-col justify-start items-start gap-6 order-2 md:order-1 w-full result-card-container">
+            <div class="result-card" *ngFor="let card of data.slice(0, visibleDataCount); let i = index">
+
+                <div class="flex justify-start items-center gap-2 font-sans heading-container">
+                    <div class="flex flex-col justify-center items-start title-container">
+                        <!-- <a [href]="card.url">{{ card.url }}</a> -->
+                        <a class="hover:text-blue-700" [href]="card.url" target="_blank">{{ getDomain(card.url) }}</a>
+
+                    </div>
+                </div>
+                <div class="title-container">
+                    <a [href]="card.url" target="_blank">
+                        <h1 class="font-sans text-2xl text-blue-800 hover:underline cursor-pointer">{{card.title}}</h1>
+                    </a>
+                </div>
+                <div class="detail-container">
+                    <p class="font-sans">{{card.description}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="order-1 md:order-2 w-full sidebar-container">
+
+            <app-sidebar [data]="knowledge_panel"></app-sidebar>
+        </div>
+    </div>
+</ng-container>
+
+<div class="mt-6 pagination-container">
+    <!-- <app-pagination [currentPage]="currentPage" (pageChanged)="changePage($event)"></app-pagination> -->
+    <button class="bg-blue-500 px-4 p-2 rounded-lg text-white" *ngIf="visibleDataCount < data.length"
+        (click)="showMore()">Show More</button>
+</div>

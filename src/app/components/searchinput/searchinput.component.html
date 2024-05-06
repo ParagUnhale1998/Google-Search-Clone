@@ -1,0 +1,17 @@
+<div
+    class="flex items-center border-[1px] border-gray-300 hover:shadow-md px-2 py-1 rounded-full w-full search-container cursor-pointer">
+
+    <div class="flex justify-center items-center w-10 search-icon-container">
+        <mat-icon class="text-gray-400" fontIcon="search"></mat-icon>
+    </div>
+    <div class="w-full search-input-container">
+        <input type="text"  class="shadow-none p-2 border-none w-full outline-none" [(ngModel)]="searchTerm" (keyup.enter)="navigateToSearch()">
+    </div>
+    <div class="flex justify-center items-center w-12 mic-container">
+        <img src="/assets/mic.svg" alt="mic.svg" class="w-6">
+    </div>
+    <div class="flex justify-center items-center w-12 picture-container">
+        <img src="/assets/image.svg" alt="image.svg" class="w-6">
+
+    </div>
+</div>
